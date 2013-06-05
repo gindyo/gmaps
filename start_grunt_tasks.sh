@@ -1,2 +1,2 @@
 #!/bin/bash
-gnome-terminal --tab -e "grunt watch:karma" --tab -e "grunt watch:coffee" --tab -e "grunt watch:coffeeTest" --tab -e "grunt karma" 
+gnome-terminal --tab -e "grunt watch:karma -f" --tab -e "grunt watch:coffee -f" --tab -e "grunt watch:coffeeTest -f" --tab -e "grunt karma -f" 

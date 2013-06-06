@@ -11,6 +11,11 @@
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
-    "angular-scenario": "~1.0.5"
+    "angular-scenario": "~1.0.5",
+    "Tourist.js": "~0.0.11",
+    "backbone": "~1.0.0",
+    "jquery": "~2.0.2",
+    "underscore": "~1.4.4",
+    "bootstrap": "~2.3.2"
   }
 }

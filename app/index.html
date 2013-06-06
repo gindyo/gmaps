@@ -17,6 +17,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="gmaps">
+    <input ng-model='hide_next_button'>
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -27,15 +28,16 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    <div id='view_container' class="container" ng-view></div>
 
-    <script src="components/angular/angular.js"></script>
     <script src="components/jquery/jquery.js"></script>
      <script src="components/bootstrap/js/bootstrap-tooltip.js"></script>
      <script src="components/bootstrap/js/bootstrap-popover.js"></script>
     <script src="components/underscore/underscore.js"></script>
     <script src="components/backbone/backbone.js"></script>
     <script src="components/Tourist.js/tourist.js"></script>
+    <script src="scripts/tourist_init.js"></script>
+    <script src="components/angular/angular.js"></script>
     <script src="components/angular-google-maps/src/angular-google-maps.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>

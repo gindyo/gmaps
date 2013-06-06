@@ -1,6 +1,5 @@
 (function() {
   angular.module('gmaps').controller('MapCtrl', function($scope, $timeout, $log, $location) {
-    var steps;
     google.maps.visualRefresh = true;
     $scope.hide_next_button = true;
     angular.extend($scope, {
@@ -30,32 +29,12 @@
         }
       }
     });
-    steps = [
-      {
-        container: $('#view_container'),
-        content: '<p>Enter Address</p>',
-        highlightTarget: true,
-        nextButton: true,
-        target: $('#address'),
-        my: 'top center',
-        at: 'bottom center',
-        teardown: function(tour, options) {
-          $scope.$apply(function() {
-            return $scope.get_address();
-          });
-          return $scope.mapIsHidden = false;
-        }
-      }, {
-        content: '<p>If the marker is off click where it should be</p>',
-        highlightTarget: true,
-        nextButton: true,
-        target: $('#map'),
-        my: 'top center',
-        at: 'bottom center'
-      }
-    ];
-    window.tour.options.steps = steps;
-    window.tour.start();
+    $scope.address_empty = function() {
+      return $scope.address === "" || !$scope.address;
+    };
+    $scope.submit_coords = function() {
+      return $location.path('/success/' + $scope.markersProperty[0].latitude + '&lng=' + $scope.markersProperty[0].longitude);
+    };
     return $scope.get_address = function() {
       var callback, geocoder, request;
       request = {
@@ -63,6 +42,7 @@
       };
       callback = function(result, status) {
         return $scope.$apply(function() {
+          $scope.show_map = true;
           $scope.position.coords = {
             latitude: result[0].geometry.location.jb,
             longitude: result[0].geometry.location.kb

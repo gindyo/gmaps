@@ -1,13 +1,8 @@
 
 <div>
   <input  id='address' type='text' ng-model='address' placeholder='Enter address here ...'>
-  
-
+  <button  ng-click='get_address()' ng-disabled='address_empty()' >Search</button>
 </div>
-
-
-
-
 <div id='map'style='height: 200px'  >
     <div  style='height: 200px' class='google-map'
             center="position.coords"
@@ -23,4 +18,16 @@
             style="height: 1000px; width: 100%">
 
     </div>
+
+<div ng-show='show_map'>
+<div  id='instructions' class='alert alert-block'> 
+    If the Marker is off from where it should be, click on the correct location to adjust it. 
+</div>
+    <h3> Coordinates to be submitted </h3>
+    Latitude: {{markersProperty[0].latitude}}
+    <br>
+    Longitude: {{markersProperty[0].longitude}}
+    <br>
+    <button class='btn btn-info' ng-click='submit_coords()'>Submit these coordinates</button>
+</div>
 </div>
